@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Saved locations chip bar -->
+  <div class="locations-bar" id="locationsBar"></div>
+
+  <!-- Empty state / first page: world map, shown before any search -->
+  <div class="empty-state" id="emptyState">
+    <div id="worldMap"></div>
+    <p class="map-hint">Tap a city pin, tap anywhere on the map, or search below</p>
+  </div>
+
+  <!-- Result page, hidden until a search happens -->
+  <div class="result" id="result">
+    <div class="hero-band" id="heroBand">
+      <div class="place-row">
+        <div>
+          <div class="place-name" id="placeName">—</div>
+          <div class="place-sub" id="placeSub">—</div>
+        </div>
+        <div class="hero-actions">
+          <button class="save-btn" id="backBtn" title="Back to map">🗺</button>
+          <button class="save-btn" id="saveBtn" title="Add to my locations">+</button>
+          <div class="unit" id="unitToggle">°C</div>
+        </div>
+      </div>
+
+      <div class="hero-row">
+        <div class="hero-icon" id="heroIcon">☀</div>
+        <div>
+          <div class="hero-temp" id="heroTemp">—°</div>
+          <div class="hero-cond" id="heroCond">—</div>
+        </div>
+      </div>
+      <div class="hilo" id="hilo">H: — L: —</div>
+    </div>
+
+    <div class="sheet-body">
+      <div class="section-title">Hourly forecast</div>
+      <div class="hourly-scroll" id="hourly"></div>
+
+      <div class="section-title">7-day forecast</div>
+      <div class="daily" id="daily"></div>
+
+      <div class="section-title">Location</div>
+      <div class="map-card">
+        <div id="miniMap"></div>
+        <a href="#" class="open-map-link" id="openMapLink" target="_blank" rel="noopener">Open in full map ↗</a>
+      </div>
+
+      <div class="section-title">Details</div>
+      <div class="details" id="details"></div>
+    </div>
+  </div>
+
+  <div class="loading" id="loading">Loading…</div>
+
+</div>
+
+<!-- Bottom search bar -->
+<div class="searchbar">
+  <input type="text" id="cityInput" placeholder="Search city or tap the mic" autocomplete="off">
+  <button id="micBtn" title="Voice search">🎤</button>
+  <button id="searchBtn" title="Search">🔍</button>
+</div>
+
+<div id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
